@@ -2,6 +2,7 @@ package com.demo.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,10 @@ private String prenom;
 private String adresse;
 private String tel;
 private int age;
+@Column(nullable = true)
+String job;
+
+
 //private String code_user;
 public int getId() {
 	return id;
@@ -77,6 +82,12 @@ public User() {
 public String toString() {
 	return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", tel=" + tel + ", age="
 			+ age + "]";
+}
+public String getJob() {
+	return job;
+}
+public void setJob(String job) {
+	this.job = job;
 }
 
 

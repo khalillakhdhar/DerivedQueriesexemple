@@ -26,9 +26,10 @@ public class DerivedQueriesApplication implements CommandLineRunner {
 	userRepo.deleteAll();
 	User u1= new User("user1", "u1", "adr1", "3300998887", 30);
 	User u2= new User("user2", "u3", "adr2", "3300998111", 40);
-	User u3= new User("user1", "u1", "adr2", "3300998222", 50);
+	User u3= new User("adminuser", "u1", "adr2", "3300998222", 50);
 	userRepo.save(u1);
 	userRepo.save(u2);
+	u3.setJob("enseignant");
 	userRepo.save(u3);
 	
 	List<User> liuser= new ArrayList<User>();// intilisation
@@ -46,11 +47,22 @@ public class DerivedQueriesApplication implements CommandLineRunner {
 //	}
 	List<User> liuseradresse= new ArrayList<User>();// intilisation
 	liuseradresse=userRepo.findDistinctByAdresse("adr2");
-	for(User us:liuser)
+	for(User us:liuseradresse)
 	{
 		System.out.println("find by adresse sans doublant"+us.toString());
 	}
-	
+	List<User> linulljob= new ArrayList<User>();// intilisation
+	linulljob=userRepo.findByJobIsNull();
+	for(User us:linulljob)
+	{
+		System.out.println("find by job where job is NULL"+us.toString());
+	}
+	List<User> startNames= new ArrayList<User>();// intilisation
+	startNames=userRepo.findByNomStartingWith("admin");
+	for(User us:startNames)
+	{
+		System.out.println("find by names starts"+us.toString());
+	}
 	
 	
 	}

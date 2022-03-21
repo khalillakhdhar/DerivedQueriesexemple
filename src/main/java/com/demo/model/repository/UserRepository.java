@@ -14,6 +14,11 @@ List<User> findDistinctByAdresse(String ad); // required param=> String int...
 List<User> findByNomAndAge(String nom,int age); // age ==int age ET nom==String nom
 List<User> findByNomOrAge(String nom, int age); // age ==int age OU nom==String nom
 //List<User> findByAgeOrNom(int Age, String nom); correcte
+List<User> findByJobIsNull();
+List<User> findByNomStartingWith(String starter);
+
+
+
 
 
 }
