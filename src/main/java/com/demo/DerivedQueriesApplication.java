@@ -24,8 +24,8 @@ public class DerivedQueriesApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 	userRepo.deleteAll();
-	User u1= new User("user1", "u1", "adr1", "3300998887", 30);
-	User u2= new User("user2", "u3", "adr2", "3300998111", 40);
+	User u1= new User("admin", "u1", "adr1", "3300998887", 30);
+	User u2= new User("teste", "u3", "adr2", "3300998111", 30);
 	User u3= new User("adminuser", "u1", "new york", "3300998222", 50);
 	userRepo.save(u1);
 	userRepo.save(u2);
@@ -68,6 +68,12 @@ public class DerivedQueriesApplication implements CommandLineRunner {
 	for(User us:adresseContent)
 	{
 		System.out.println("find by adresse containing"+us.toString());
+	}
+	List<User> userordered= new ArrayList<User>();// intilisation
+	userordered=userRepo.findByAgeOrderByNomDesc(30);
+	for(User us:userordered)
+	{
+		System.out.println("find by age 30 ordonné"+us.toString());
 	}
 	
 	}

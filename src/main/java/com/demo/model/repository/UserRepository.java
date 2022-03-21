@@ -17,6 +17,8 @@ List<User> findByNomOrAge(String nom, int age); // age ==int age OU nom==String 
 List<User> findByJobIsNull();
 List<User> findByNomStartingWith(String starter);
 List<User> findByAdresseContaining(String adresse);
+List<User> findByAgeOrderByNomAsc(int age);
+List<User> findByAgeOrderByNomDesc(int age);
 
 
 
