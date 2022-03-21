@@ -26,7 +26,7 @@ public class DerivedQueriesApplication implements CommandLineRunner {
 	userRepo.deleteAll();
 	User u1= new User("user1", "u1", "adr1", "3300998887", 30);
 	User u2= new User("user2", "u3", "adr2", "3300998111", 40);
-	User u3= new User("adminuser", "u1", "adr2", "3300998222", 50);
+	User u3= new User("adminuser", "u1", "new york", "3300998222", 50);
 	userRepo.save(u1);
 	userRepo.save(u2);
 	u3.setJob("enseignant");
@@ -63,7 +63,12 @@ public class DerivedQueriesApplication implements CommandLineRunner {
 	{
 		System.out.println("find by names starts"+us.toString());
 	}
-	
+	List<User> adresseContent= new ArrayList<User>();// intilisation
+	adresseContent=userRepo.findByAdresseContaining("york");
+	for(User us:adresseContent)
+	{
+		System.out.println("find by adresse containing"+us.toString());
+	}
 	
 	}
 	
